@@ -1,0 +1,146 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 100vw;
+	height: 100vh;
+}
+.btn {
+	height: 70px;
+	width: 200px;
+
+	font-size: 15px;
+	font-weight: bold;
+
+	border-radius: 35px;
+
+	background: blue;
+	color: white;
+
+	cursor: pointer;
+
+	transition: all 0.3s;
+}
+.btn:hover{
+	filter: brightness(60%);
+}
+
+/* MODAL */
+.hidden {
+	display: none;
+}
+.modalback {
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	background: rgba(0, 0, 20, 0.7);
+
+	z-index: 2;
+
+	animation-name: openmodal;
+	animation-duration: 1s;
+}
+.modalcard {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	opacity: 0;
+
+	transform: translateX(-50%) translateY(-50%);
+
+	background: white;
+
+	border-radius: 50px;
+	box-shadow: 0px 0px 10px 5px black;
+
+	animation-name: opencard;
+	animation-duration: 1s;
+	animation-delay: 0.5s;
+	animation-fill-mode: forwards;
+}
+
+.cardhead {
+	width: 100%;
+	height: 50px;
+
+	background: blue;
+
+	border-radius: 50px 50px 0px 0px;
+	border-bottom: 2px solid black;
+}
+.cardhead h3 {
+	position: relative;
+	display: inline-block;
+	top: 0;
+	left: 50%;
+	width: max-content;
+
+	transform: translateX(-50%);
+
+	color: white;
+	font-size: 25px;
+	text-decoration: underline;
+
+	margin: 10px 0px 0px 0px;
+}
+.modalbtn {
+	position: fixed;
+	display: inline-block;
+	top: 15px;
+	right: 30px;
+
+	color: white;
+	font-size: 20px;
+
+	cursor: pointer;
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	transition: all 0.2s;
+}
+.modalbtn:hover {
+	filter: brightness(50%);
+}
+
+.cardbody {
+	padding: 20px;
+	text-align: justify;
+}
+.cardfoot {
+	height: 50px;
+	border-radius: 0px 0px 50px 50px;
+
+	background: blue;
+
+	color: white;
+	font-size: 15px;
+
+	text-align: center;
+	padding: 15px;
+}
+
+/*ANIMATION*/
+
+@keyframes openmodal {
+	from {opacity: 0;}
+	to {opacity: 100;}
+}
+
+@keyframes opencard {
+	0% {transform: translateX(-50%) translateY(-50%) scale(0.001); opacity: 0;}
+	20% {transform: translateX(-50%) translateY(-50%) scaleX(1.1) scaleY(0.001);}
+	30% {transform: translateX(-50%) translateY(-50%) scaleX(1) scaleY(0.1);}
+	90% {transform: translateX(-50%) translateY(-50%) scaleX(1) scaleY(1.1);}
+	100% {transform: translateX(-50%) translateY(-50%) scaleX(1) scaleY(1); opacity: 100;}
+}
